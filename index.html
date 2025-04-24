@@ -63,19 +63,11 @@
   <button onclick="sendMessage()">Enviar</button>
 
   <script>
-    if (msg.body.match(/(menu|Menu|dia|tarde|noite|oi|Oi|Olá|olá|ola|Ola)/i) && msg.from.endsWith('@c.us')) {
+    if (msg.body.match(/(menu|Menu|dia|tarde|noite|oi|Oi|Olá|olá|ola|Ola)/i) {
 
-        const chat = await msg.getChat();
-
-        await delay(2200); //delay de 2.2 segundos
-        await chat.sendStateTyping(); // Digitando...
-        await delay(3000); //Delay de 2.2 segundos
-        const contact = await msg.getContact(); //Pega o contato
-        const name = contact.pushname; //Pega o nome do contato
-        await client.sendMessage(msg.from,'Olá! '+ name.split(" ")[0] + '. Sou o assistente furioso aqui da Fúria. O que você busca? Escolha uma das opções abaixo:\n\n1 - Camisetas oficiais\n2 - Bastidores da Fúrias\n3 - Criadores de Conteúdo\n4 - Outros'); //Primeira mensagem de texto
-        await delay(2200); //delay de 2.2 segundos
-        await chat.sendStateTyping(); // Digitando...
-        await delay(3500); //Delay de 3.5 segundos
+        const respostas = await msg.getChat();
+        await delay(2000); //delay de 2.2 segundos
+        await client.sendMessage(msg.from,'Olá! Sou o assistente furioso aqui da Fúria. O que você busca? Escolha uma das opções abaixo:\n\n1 - Camisetas oficiais\n2 - Bastidores da Fúrias\n3 - Criadores de Conteúdo\n4 - Outros'); //Primeira mensagem de texto
     
         
     }
