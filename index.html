@@ -97,9 +97,13 @@
         // Envia a mensagem com delay
         enviarComDelay([resposta], 1200);
       } else if (mensagem === "2") {
-        resposta = "Neste link você encontra o que rola por trás das cameras";
-        resposta = "https://www.youtube.com/@FURIAggVAL";
-        enviarComDelay([resposta], 1200);
+       adicionarMensagem("Bot: " + resposta, "bot");
+        // Agora, envia as outras 3 mensagens com delay
+        enviarComDelay([
+          "YouTube",
+          "Instagram",
+          "TikTok"
+        ], 1200);  // 1200 milissegundos = 1.2 segundos de delay
       } else if (mensagem === "3") {
         resposta = "Este são alguns de nossos streamers";
         enviarComDelay([resposta], 1200);
