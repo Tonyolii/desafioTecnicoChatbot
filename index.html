@@ -78,7 +78,7 @@
 
       // Condicional if para respostas personalizadas
       if (mensagem === "oi" || mensagem === "ola") {
-        resposta = "Olá. Sou o assistente furioso aqui da Fúria. O que você busca? Escolha uma das opções abaixo:\n\ns\n\n4 - Outros";}
+        resposta = "Olá. Sou o assistente furioso aqui da Fúria. O que você busca? Escolha uma das opções abaixo:\n\ns\n\n4 - Outros";
 
         // Enviar 3 mensagens com delay de 2 segundos entre elas
         enviarComDelay([
@@ -86,7 +86,7 @@
           "2 - Bastidores da Fúria",
           "3 - Criadores de Conteúdo"
         ], 2000);  // 2000 milissegundos = 2 segundos de delay
-      } else if (mensagem === "1") {
+      } else if (mensagem === "1" || mensagem=== "Um") {
         resposta = "Tudo ótimo, e com você?";
       } else if (mensagem === "2") {
         resposta = "Sou um chatbot simples feito em JavaScript!";
