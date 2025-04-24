@@ -63,16 +63,8 @@
   <button onclick="sendMessage()">Enviar</button>
 
   <script>
-    if (msg.body.match(/(menu|Menu|dia|tarde|noite|oi|Oi|Olá|olá|ola|Ola)/i) {
-
-        const respostas = await msg.getChat();
-        await delay(2000); //delay de 2.2 segundos
-        await client.sendMessage(msg.from,'Olá! Sou o assistente furioso aqui da Fúria. O que você busca? Escolha uma das opções abaixo:\n\n1 - Camisetas oficiais\n2 - Bastidores da Fúrias\n3 - Criadores de Conteúdo\n4 - Outros'); //Primeira mensagem de texto
-    
-        
-    }
     const respostas = {
-      "oi": "Olá! Como posso te ajudar?",
+      "oi", "Oi", "Olá", "Bom dia", "Boa tarde": "Olá! Como posso te ajudar?",
       "tudo bem?": "Tudo ótimo, e com você?",
       "qual seu nome?": "Sou um chatbot simples feito em JavaScript!",
       "adeus": "Tchau! Volte sempre.",
