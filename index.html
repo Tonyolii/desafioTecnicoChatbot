@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot Simples</title>
+  <style>
+    body { font-family: Arial; max-width: 600px; margin: 30px auto; }
+    .chatbox { border: 1px solid #ccc; padding: 20px; height: 300px; overflow-y: scroll; margin-bottom: 10px; }
+    .bot { color: blue; }
+    .user { color: green; }
+  </style>
+</head>
+<body>
+  <h1>Chatbot em JavaScript</h1>
+  <div class="chatbox" id="chatbox"></div>
+  <input type="text" id="userInput" placeholder="Digite sua mensagem..." />
+  <button onclick="sendMessage()">Enviar</button>
+
+  <script>
+    const respostas = {
+      "oi": "Olá! Como posso te ajudar?",
+      "tudo bem?": "Tudo ótimo, e com você?",
+      "qual seu nome?": "Sou um chatbot simples feito em JavaScript!",
+      "adeus": "Tchau! Volte sempre."
+    };
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const mensagem = input.value.toLowerCase();
+      input.value = "";
+
+      if (!mensagem) return;
+
+      adicionarMensagem("Você: " + mensagem, "user");
+
+      const resposta = respostas[mensagem] || "Desculpe, não entendi. Pode repetir?";
+      adicionarMensagem("Bot: " + resposta, "bot");
+    }
+
+    function adicionarMensagem(texto, classe) {
+      const chatbox = document.getElementById("chatbox");
+      const p = document.createElement("p");
+      p.className = classe;
+      p.textContent = texto;
+      chatbox.appendChild(p);
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+  </script>
+</body>
+</html>
