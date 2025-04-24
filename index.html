@@ -91,20 +91,20 @@
           "3 - Criadores de Conteúdo",
           "4 - Outros"
         ], 1200);  // 1200 milissegundos = 1.2 segundos de delay
-      } else if (mensagem === "tudo bem?") {
-        resposta = "Tudo ótimo, e com você?";
+      } else if (mensagem === "1") {
+        resposta = "Linkpara Loja de Camisetas oficiais";
         adicionarMensagem("Bot: " + resposta, "bot");
-      } else if (mensagem === "qual seu nome?") {
-        resposta = "Sou um chatbot simples feito em JavaScript!";
+      } else if (mensagem === "2") {
+        resposta = "Neste link você encontra o que rola por trás das cameras";
         adicionarMensagem("Bot: " + resposta, "bot");
-      } else if (mensagem === "adeus") {
-        resposta = "Tchau! Volte sempre!";
+      } else if (mensagem === "3") {
+        resposta = "Este são alguns de nossos streamers";
         adicionarMensagem("Bot: " + resposta, "bot");
-      } else if (mensagem === "qual a sua cor favorita?") {
+      } else if (mensagem === "4") {
         resposta = "Eu gosto de todas as cores, mas azul é bem legal!";
         adicionarMensagem("Bot: " + resposta, "bot");
-      } else if (mensagem === "você gosta de programar?") {
-        resposta = "Sim! Programar é a minha paixão, haha!";
+      } else if (mensagem === "Encerrar"|| mensagem==="Sair") {
+        resposta = "Saindo";
         adicionarMensagem("Bot: " + resposta, "bot");
       }
 
