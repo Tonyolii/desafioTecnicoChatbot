@@ -97,7 +97,9 @@
         // Envia a mensagem com delay
         enviarComDelay([resposta], 1200);
       } else if (mensagem === "2") {
-       adicionarMensagem("Bot: " + resposta, "bot");
+        // Envia diretamente a mensagem para a opção 2
+        adicionarMensagem("Bot: Aqui estão nossas redes sociais:", "bot");
+
         // Agora, envia as outras 3 mensagens com delay
         enviarComDelay([
           "YouTube",
