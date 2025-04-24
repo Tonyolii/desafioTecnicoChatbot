@@ -80,7 +80,7 @@
       if (mensagem === "oi" || mensagem === "ola") {
         // A resposta principal será exibida primeiro
         resposta = "Olá. Sou o assistente furioso aqui da Fúria. O que você busca? Escolha uma das opções abaixo:";
-        
+
         // Exibe a resposta principal
         adicionarMensagem("Bot: " + resposta, "bot");
 
@@ -136,6 +136,14 @@
       chatbox.appendChild(p);
       chatbox.scrollTop = chatbox.scrollHeight;
     }
+
+    // Função para permitir o envio com Enter
+    document.getElementById("userInput").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {  // Verifica se a tecla pressionada é Enter
+        event.preventDefault();  // Impede o comportamento padrão (que seria a quebra de linha)
+        sendMessage();  // Chama a função sendMessage() quando Enter é pressionado
+      }
+    });
   </script>
 </body>
 </html>
