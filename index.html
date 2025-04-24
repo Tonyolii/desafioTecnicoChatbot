@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Chatbot Personalizado</title>
+  <title>Chatbot Furioso</title>
   <style>
     /* Estilo para a interface do chatbot */
     body {
@@ -92,7 +92,9 @@
           "4 - Outros"
         ], 1200);  // 1200 milissegundos = 1.2 segundos de delay
       } else if (mensagem === "1") {
+         enviarComDelay([
         resposta = "Linkpara Loja de Camisetas oficiais";
+         ], 1200);
         adicionarMensagem("Bot: " + resposta, "bot");
       } else if (mensagem === "2") {
         resposta = "Neste link você encontra o que rola por trás das cameras";
