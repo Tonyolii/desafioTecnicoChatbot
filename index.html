@@ -79,6 +79,13 @@
       // Condicional if para respostas personalizadas
       if (mensagem === "oi" || mensagem === "ola") {
         resposta = "Olá. Sou o assistente furioso aqui da Fúria. O que você busca? Escolha uma das opções abaixo:\n1 - Camisetas oficiais\n2 - Bastidores da Fúrias\n3 - Criadores de Conteúdo\n4 - Outros";
+
+        // Enviar 3 mensagens com delay de 2 segundos entre elas
+        enviarComDelay([
+          "Mensagem 1: Olá! Eu sou o assistente da Fúria.",
+          "Mensagem 2: Aqui estão algumas opções para você.",
+          "Mensagem 3: Qual você deseja escolher?"
+        ], 2000);  // 2000 milissegundos = 2 segundos de delay
       } else if (mensagem === "tudo bem?") {
         resposta = "Tudo ótimo, e com você?";
       } else if (mensagem === "qual seu nome?") {
@@ -95,16 +102,32 @@
       adicionarMensagem("Bot: " + resposta, "bot");
     }
 
+    // Função para enviar mensagens com delay
+    function enviarComDelay(mensagens, delay) {
+      let i = 0;
+
+      // Função que vai enviar a próxima mensagem após o delay
+      function enviar() {
+        if (i < mensagens.length) {
+          adicionarMensagem("Bot: " + mensagens[i], "bot");
+          i++;
+          setTimeout(enviar, delay);  // Chama novamente após o delay
+        }
+      }
+
+      // Chama a primeira mensagem
+      enviar();
+    }
+
     // Função para adicionar as mensagens na tela
     function adicionarMensagem(texto, classe) {
       const chatbox = document.getElementById("chatbox");
       const p = document.createElement("p");
       p.className = classe;
-      p.textContent = texto;
+      p.innerHTML = texto;  // Usamos innerHTML para permitir que o HTML seja interpretado
       chatbox.appendChild(p);
       chatbox.scrollTop = chatbox.scrollHeight;
     }
   </script>
 </body>
 </html>
-
