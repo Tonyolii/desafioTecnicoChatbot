@@ -92,8 +92,12 @@
           "4 - Outros"
         ], 1200);  // 1200 milissegundos = 1.2 segundos de delay
       } else if (mensagem === "1") {
-         enviarComDelay(["Linkpara Loja de Camisetas oficiais"], 1200);
-        adicionarMensagem("Bot: " + resposta, "bot");
+  // Define a resposta corretamente antes de enviar com delay
+  resposta = "Link para Loja de Camisetas oficiais";
+
+  // Envia a mensagem com delay
+  enviarComDelay([resposta], 1200);
+}
       } else if (mensagem === "2") {
         resposta = "Neste link você encontra o que rola por trás das cameras";
         adicionarMensagem("Bot: " + resposta, "bot");
