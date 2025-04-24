@@ -57,7 +57,7 @@
   </style>
 </head>
 <body>
-  <h1>Chatbot Personalizado</h1>
+  <h1>Chatbot Furioso</h1>
   <div class="chatbox" id="chatbox"></div>
   <input type="text" id="userInput" placeholder="Digite sua mensagem..." />
   <button onclick="sendMessage()">Enviar</button>
@@ -79,16 +79,17 @@
       // Condicional if para respostas personalizadas
       if (mensagem === "oi" || mensagem === "ola") {
         // A resposta principal será exibida primeiro
-        resposta = "Olá. Sou o assistente furioso aqui da Fúria. O que você busca? Escolha uma das opções abaixo:\n1 - Camisetas oficiais\n2 - Bastidores da Fúrias\n3 - Criadores de Conteúdo\n4 - Outros";
+        resposta = "Olá. Sou o assistente furioso aqui da Fúria. O que você busca? Escolha uma das opções abaixo:\n\ns\n\n";
         
         // Exibe a resposta principal
         adicionarMensagem("Bot: " + resposta, "bot");
 
         // Agora, envia as outras 3 mensagens com delay
         enviarComDelay([
-          "Mensagem 1: Olá! Eu sou o assistente da Fúria.",
-          "Mensagem 2: Aqui estão algumas opções para você.",
-          "Mensagem 3: Qual você deseja escolher?"
+          "1 - Camisetas oficiais",
+          "2 - Bastidores da Fúria",
+          "3 - Criadores de Conteúdo",
+          "4 - Outros"
         ], 2000);  // 2000 milissegundos = 2 segundos de delay
       } else if (mensagem === "tudo bem?") {
         resposta = "Tudo ótimo, e com você?";
