@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <title>Chatbot Personalizado</title>
   <style>
+    /* Estilo para a interface do chatbot */
     body {
       font-family: Arial, sans-serif;
-      color:white;
+      color: white;
       background-color: #000;
       max-width: 600px;
       margin: 0 auto;
@@ -62,29 +63,39 @@
   <button onclick="sendMessage()">Enviar</button>
 
   <script>
-    const respostas = {
-      "oi": "Olá! Como posso ajudar?",
-      "tudo bem?": "Tudo ótimo, e com você?",
-      "qual seu nome?": "Sou um chatbot simples feito em JavaScript!",
-      "adeus": "Tchau! Volte sempre.",
-      "qual a sua cor favorita?": "Eu gosto de todas as cores, mas azul é bem legal!",
-      "você gosta de programar?": "Sim! Programar é a minha paixão, haha!",
-      "como você funciona?": "Eu sou um simples chatbot em JavaScript, e uso um pouco de lógica para responder."
-    };
-
+    // Função para enviar a mensagem
     function sendMessage() {
       const input = document.getElementById("userInput");
-      const mensagem = input.value.toLowerCase();
-      input.value = "";
+      const mensagem = input.value.toLowerCase();  // converte a mensagem para minúscula
+      input.value = "";  // Limpa o campo de entrada
 
-      if (!mensagem) return;
+      if (!mensagem) return;  // Se o campo estiver vazio, não faz nada
 
+      // Adiciona a mensagem do usuário na tela
       adicionarMensagem("Você: " + mensagem, "user");
 
-      const resposta = respostas[mensagem] || "Hmm, não sei o que responder a isso... Tente de novo!";
+      let resposta = "Hmm, não sei o que responder a isso... Tente de novo!";
+
+      // Condicional if para respostas personalizadas
+      if (mensagem === "oi") {
+        resposta = "Olá! Como posso te ajudar?";
+      } else if (mensagem === "tudo bem?") {
+        resposta = "Tudo ótimo, e com você?";
+      } else if (mensagem === "qual seu nome?") {
+        resposta = "Sou um chatbot simples feito em JavaScript!";
+      } else if (mensagem === "adeus") {
+        resposta = "Tchau! Volte sempre!";
+      } else if (mensagem === "qual a sua cor favorita?") {
+        resposta = "Eu gosto de todas as cores, mas azul é bem legal!";
+      } else if (mensagem === "você gosta de programar?") {
+        resposta = "Sim! Programar é a minha paixão, haha!";
+      }
+
+      // Adiciona a resposta do bot na tela
       adicionarMensagem("Bot: " + resposta, "bot");
     }
 
+    // Função para adicionar as mensagens na tela
     function adicionarMensagem(texto, classe) {
       const chatbox = document.getElementById("chatbox");
       const p = document.createElement("p");
