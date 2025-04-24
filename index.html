@@ -106,9 +106,9 @@
       } else if (mensagem === "4") {
         resposta = "Eu gosto de todas as cores, mas azul é bem legal!";
         enviarComDelay([resposta], 1200);
-      } else if (mensagem === "Encerrar" || mensagem === "Sair") {
+      } else if (mensagem === "encerrar" || mensagem === "sair") {
         resposta = "Saindo";
-        adicionarMensagem("Bot: " + resposta, "bot");
+        enviarComDelay([resposta], 1200);
       }
 
     }
