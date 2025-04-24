@@ -55,8 +55,6 @@
   </style>
 </head>
 <body>
-<script src="chatbot.js"></script>
-   
   <h1>Chatbot Personalizado</h1>
   <div class="chatbox" id="chatbox"></div>
   <input type="text" id="userInput" placeholder="Digite sua mensagem..." />
@@ -64,7 +62,7 @@
 
   <script>
     const respostas = {
-      "oi", "Oi", "Olá", "Bom dia", "Boa tarde": "Olá! Como posso te ajudar?",
+      "oi": "Olá! Como posso te ajudar?",
       "tudo bem?": "Tudo ótimo, e com você?",
       "qual seu nome?": "Sou um chatbot simples feito em JavaScript!",
       "adeus": "Tchau! Volte sempre.",
