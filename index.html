@@ -79,7 +79,7 @@
       // Condicional if para respostas personalizadas
       if (mensagem === "oi" || mensagem === "ola") {
         // A resposta principal será exibida primeiro
-        resposta = "Olá. Sou o assistente furioso aqui da Fúria. O que você busca? Escolha uma das opções abaixo:\n\ns\n\n";
+        resposta = "Olá. Sou o assistente furioso aqui da Fúria. O que você busca? Escolha uma das opções abaixo:";
         
         // Exibe a resposta principal
         adicionarMensagem("Bot: " + resposta, "bot");
@@ -90,7 +90,7 @@
           "2 - Bastidores da Fúria",
           "3 - Criadores de Conteúdo",
           "4 - Outros"
-        ], 2000);  // 2000 milissegundos = 2 segundos de delay
+        ], 1200);  // 1200 milissegundos = 1.2 segundos de delay
       } else if (mensagem === "tudo bem?") {
         resposta = "Tudo ótimo, e com você?";
         adicionarMensagem("Bot: " + resposta, "bot");
