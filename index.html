@@ -103,7 +103,7 @@
       // Condicional if para respostas personalizadas
       if (mensagem === "oi" || mensagem === "ola" || mensagem === "voltar") {
         // A resposta principal será exibida primeiro
-        resposta = "Olá. Sou o seu assistente aqui da Fúria. O que você busca? Escolha uma das opções abaixo:";
+        resposta = "Olá. Sou o seu assistente  Fúria. O que busca? Escolha uma das opções:";
 
         // Exibe a resposta principal
         adicionarMensagem("Bot: " + resposta, "bot");
@@ -114,11 +114,11 @@
           "2 - Bastidores da Fúria",
           "3 - Criadores de Conteúdo",
           "4 - Trabalhe conosco"
-        ], 1200);  // 1200 milissegundos = 1.2 segundos de delay
+        ], 1000);  // 1000 milissegundos = 1 segundo de delay
       } else if (mensagem === "1") {
         // Define a resposta corretamente antes de enviar com delay
         resposta = "Confira nossas camisetas oficiais:";
-  enviarComDelay([resposta], 1200);
+  enviarComDelay([resposta], 1000);
       } else if (mensagem === "2") {
         // Envia diretamente a mensagem para a opção 2
         adicionarMensagem("Bot: Aqui estão nossas redes sociais:", "bot");
@@ -131,13 +131,13 @@
         ], 1200);  // 1200 milissegundos = 1.2 segundos de delay
       } else if (mensagem === "3") {
         resposta = "Este são alguns de nossos streamers";
-        enviarComDelay([resposta], 1200);
+        enviarComDelay([resposta], 1000);
       } else if (mensagem === "4") {
         resposta = "Neste link você encontra as oportunidades na Fúria.";
-        enviarComDelay([resposta], 1200);
+        enviarComDelay([resposta], 1000);
       } else if (mensagem === "encerrar" || mensagem === "sair") {
         resposta = "Saindo";
-        enviarComDelay([resposta], 1200);
+        enviarComDelay([resposta], 1000);
       }
 
     }
