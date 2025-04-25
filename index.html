@@ -11,6 +11,15 @@
       color: #fff;
       text-shadow: 2px 2px 4px black;
 }
+    .faixa-topo {
+      width: 100%;
+      height: 4cm;
+      background-color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+}
     body {
       background-image: url(https://furiagg.fbitsstatic.net/img/b/1be4afd5-a727-4555-81fd-e779a32578be.jpg?w=1600&v=no-change);
       background-size: cover;
@@ -106,6 +115,7 @@
 </head>
 <body>
 
+  <div class="faixa-topo"></div>
   <!-- Chat -->
   <div class="chat-container" id="chatContainer">
     <button class="close-btn" onclick="fecharChat()">x</button>
