@@ -5,19 +5,18 @@
   <title>Chatbot Furioso</title>
   <style>
     h1 {
-          position: fixed;
-          bottom: 300px; /* Distância de 20px da parte inferior */
-          right: 20px;
-          -webkit-text-stroke-width: 1px;
-          -webkit-text-stroke-color: black;
-           
+      position: fixed;
+      bottom: 300px;
+      right: 20px;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
     }
-    /* Estilo para a interface do chatbot */
+
     body {
-            background-image: url(https://furiagg.fbitsstatic.net/img/b/1be4afd5-a727-4555-81fd-e779a32578be.jpg?w=1600&v=no-change);
-            background-size: cover; /* Faz a imagem cobrir toda a tela */
-            background-position: center; /* Centraliza a imagem */
-            background-attachment: fixed; /* A imagem fica fixa durante o rolar da página */
+      background-image: url(https://furiagg.fbitsstatic.net/img/b/1be4afd5-a727-4555-81fd-e779a32578be.jpg?w=1600&v=no-change);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       font-family: Arial, sans-serif;
       color: white;
       background-color: #000;
@@ -34,12 +33,11 @@
       overflow-y: scroll;
       margin-bottom: 10px;
       border-radius: 8px;
-
       position: fixed;
-      bottom: 55px; /* Distância de 20px da parte inferior */
-      right: 20px;  /* Distância de 20px da parte direita */
-      width: 300px; /* Tamanho fixo do chatbox */
-      max-height: 400px; /* Máxima altura para não ultrapassar a tela */
+      bottom: 55px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
     }
 
     .bot {
@@ -56,10 +54,10 @@
       padding: 10px;
       border-radius: 4px;
       border: 1px solid #ccc;
-          position: fixed;
-          bottom: 20px; /* Distância de 20px da parte inferior */
-          right: 20px;  /* Distância de 20px da parte direita */
-          width: 320px; /* Tamanho fixo do chatbox */
+      position: fixed;
+      bottom: 20px;
+      right: 90px;
+      width: 230px;
     }
 
     button {
@@ -70,9 +68,9 @@
       color: white;
       border: none;
       cursor: pointer;
-          position: fixed;
-          bottom: 21px; /* Distância de 20px da parte inferior */
-          right: 20px;  /* Distância de 20px da parte direita */
+      position: fixed;
+      bottom: 21px;
+      right: 20px;
     }
 
     button:hover {
@@ -87,48 +85,39 @@
   <button onclick="sendMessage()">Enviar</button>
 
   <script>
-    // Função para enviar a mensagem
     function sendMessage() {
       const input = document.getElementById("userInput");
-      const mensagem = input.value.toLowerCase();  // converte a mensagem para minúscula
-      input.value = "";  // Limpa o campo de entrada
+      const mensagem = input.value.toLowerCase();
+      input.value = "";
 
-      if (!mensagem) return;  // Se o campo estiver vazio, não faz nada
+      if (!mensagem) return;
 
-      // Adiciona a mensagem do usuário na tela
       adicionarMensagem("Você: " + mensagem, "user");
 
       let resposta = "Hmm, não entendi. Por que você não envia um oi para iniciarmos uma conversa?";
 
-      // Condicional if para respostas personalizadas
       if (mensagem === "oi" || mensagem === "ola" || mensagem === "voltar") {
-        // A resposta principal será exibida primeiro
-        resposta = "Olá. Sou o seu assistente  Fúria. O que busca? Escolha uma das opções:";
-
-        // Exibe a resposta principal
+        resposta = "Olá. Sou o seu assistente Fúria. O que busca? Escolha uma das opções:";
         adicionarMensagem("Bot: " + resposta, "bot");
-
-        // Agora, envia as outras 3 mensagens com delay
         enviarComDelay([
           "1 - Camisetas oficiais",
           "2 - Bastidores da Fúria",
           "3 - Criadores de Conteúdo",
           "4 - Trabalhe conosco"
-        ], 1000);  // 1000 milissegundos = 1 segundo de delay
+        ], 1000);
       } else if (mensagem === "1") {
-        // Define a resposta corretamente antes de enviar com delay
-        resposta = "Confira nossas camisetas oficiais:";
-  enviarComDelay([resposta], 1000);
+        // Inserindo link diretamente
+        adicionarMensagem(
+          "Bot: Confira nossas camisetas oficiais: <a href='https://lojafuria.com' target='_blank'>Clique aqui</a>",
+          "bot"
+        );
       } else if (mensagem === "2") {
-        // Envia diretamente a mensagem para a opção 2
         adicionarMensagem("Bot: Aqui estão nossas redes sociais:", "bot");
-
-        // Agora, envia as outras 3 mensagens com delay
         enviarComDelay([
           "YouTube",
           "Instagram",
           "TikTok"
-        ], 1200);  // 1200 milissegundos = 1.2 segundos de delay
+        ], 1200);
       } else if (mensagem === "3") {
         resposta = "Este são alguns de nossos streamers";
         enviarComDelay([resposta], 1000);
@@ -139,43 +128,36 @@
         resposta = "Saindo";
         enviarComDelay([resposta], 1000);
       }
-
     }
 
-    // Função para enviar mensagens com delay
     function enviarComDelay(mensagens, delay) {
       let i = 0;
-
-      // Função que vai enviar a próxima mensagem após o delay
       function enviar() {
         if (i < mensagens.length) {
           adicionarMensagem("Bot: " + mensagens[i], "bot");
           i++;
-          setTimeout(enviar, delay);  // Chama novamente após o delay
+          setTimeout(enviar, delay);
         }
       }
-
-      // Chama a primeira mensagem com delay
-      setTimeout(enviar, delay); // Inicia com o delay
+      setTimeout(enviar, delay);
     }
 
-    // Função para adicionar as mensagens na tela
     function adicionarMensagem(texto, classe) {
       const chatbox = document.getElementById("chatbox");
       const p = document.createElement("p");
       p.className = classe;
-      p.innerHTML = texto;  // Usamos innerHTML para permitir que o HTML seja interpretado
+      p.innerHTML = texto;
       chatbox.appendChild(p);
       chatbox.scrollTop = chatbox.scrollHeight;
     }
 
-    // Função para permitir o envio com Enter
     document.getElementById("userInput").addEventListener("keydown", function(event) {
-      if (event.key === "Enter") {  // Verifica se a tecla pressionada é Enter
-        event.preventDefault();  // Impede o comportamento padrão (que seria a quebra de linha)
-        sendMessage();  // Chama a função sendMessage() quando Enter é pressionado
+      if (event.key === "Enter") {
+        event.preventDefault();
+        sendMessage();
       }
     });
   </script>
 </body>
 </html>
+
