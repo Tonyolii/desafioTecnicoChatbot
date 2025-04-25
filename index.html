@@ -101,9 +101,9 @@
       let resposta = "Hmm, não entendi. Por que você não envia um oi para iniciarmos uma conversa?";
 
       // Condicional if para respostas personalizadas
-      if (mensagem === "oi" || mensagem === "ola") {
+      if (mensagem === "oi" || mensagem === "ola" || mensagem === "voltar") {
         // A resposta principal será exibida primeiro
-        resposta = "Olá. Sou o assistente furioso aqui da Fúria. O que você busca? Escolha uma das opções abaixo:";
+        resposta = "Olá. Sou o seu assistente aqui da Fúria. O que você busca? Escolha uma das opções abaixo:";
 
         // Exibe a resposta principal
         adicionarMensagem("Bot: " + resposta, "bot");
@@ -117,7 +117,7 @@
         ], 1200);  // 1200 milissegundos = 1.2 segundos de delay
       } else if (mensagem === "1") {
         // Define a resposta corretamente antes de enviar com delay
-        resposta = "Link para Loja de Camisetas oficiais";
+        resposta = '<a href=https://www.furia.gg/produtos'> "Clique aqui e afquira a sua | Camisetas oficiais"</a>';
         // Envia a mensagem com delay
         enviarComDelay([resposta], 1200);
       } else if (mensagem === "2") {
