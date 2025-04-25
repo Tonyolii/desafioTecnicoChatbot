@@ -118,7 +118,7 @@
           "<a href='https://www.tiktok.com/@furia' target='_blank'>Tiktok</a>"
         ], 1000);
       } else if (mensagem === "3") {
-        adicionarMensagem("Bot: Aqui estão nossos Criadores de Conteúdo Oficiais", "bot");
+        adicionarMensagem("Aqui estão nossos Criadores de Conteúdo Oficiais", "bot");
         enviarComDelay([
           "<a href='https://www.twitch.tv/gafallen' target='_blank'>Gabriel 'Fallen' Toledo</a>", 
           "<a href='https://www.instagram.com/brino/' target='_blank'>Brino</a>",
@@ -126,8 +126,10 @@
            "<a href='https://www.twitch.tv/xarola_' target='_blank'>Matheus 'Xarola_'</a>"
         ], 1000);
       } else if (mensagem === "4") {
-        resposta = "Neste link você encontra as oportunidades na Fúria.";
-        enviarComDelay([resposta], 1000);
+         adicionarMensagem("Neste link você encontra as oportunidades na Fúria.");
+        enviarComDelay([
+          "<a href='https://99jobs.com/furia/jobs' target='_blank'>Ver Oportunidades</a>",
+          ], 1000);
       } else if (mensagem === "encerrar" || mensagem === "sair") {
         resposta = "Saindo";
         enviarComDelay([resposta], 1000);
