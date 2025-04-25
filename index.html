@@ -13,12 +13,20 @@
 }
     .faixa-topo {
       width: 100%;
-      height: 70px;
+      height: 4cm;
       background-color: white;
       position: fixed;
       top: 0;
       left: 0;
       z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+  .logo-topo {
+      max-height: 80%; /* Ajusta a altura da imagem dentro da faixa */
+      max-width: 90%; /* Evita que ultrapasse a largura */
 }
     body {
       background-image: url(https://furiagg.fbitsstatic.net/img/b/1be4afd5-a727-4555-81fd-e779a32578be.jpg?w=1600&v=no-change);
@@ -116,7 +124,7 @@
 <body>
 
   <div class="faixa-topo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/FURIA_Esports_logo.svg/512px-FURIA_Esports_logo.svg.png" alt="Logo Fúria" class="logo-topo">
+      <img src="https://furiagg.fbitsstatic.net/sf/img/logo-furia.svg?theme=main&v=202503171541" alt="Fúria" class="logo-topo">
 
   </div>
   <!-- Chat -->
