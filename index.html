@@ -4,14 +4,6 @@
   <meta charset="UTF-8">
   <title>Chatbot Furioso</title>
   <style>
-    h1 {
-      position: fixed;
-      bottom: 300px;
-      right: 20px;
-      -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: black;
-    }
-
     body {
       background-image: url(https://furiagg.fbitsstatic.net/img/b/1be4afd5-a727-4555-81fd-e779a32578be.jpg?w=1600&v=no-change);
       background-size: cover;
@@ -19,25 +11,49 @@
       background-attachment: fixed;
       font-family: Arial, sans-serif;
       color: white;
-      background-color: #000;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .chat-container {
+      position: fixed;
+      width: 320px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      bottom: 20px;
+      right: 20px;
+      display: none; /* começa escondido */
     }
 
     .chatbox {
-      border: 1px solid #ccc;
-      background-color: white;
-      padding: 20px;
-      height: 220px;
-      overflow-y: scroll;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      position: fixed;
-      bottom: 55px;
-      right: 20px;
-      width: 300px;
-      max-height: 400px;
+      height: 200px;
+      overflow-y: auto;
+      padding: 15px;
+      color: black;
+    }
+
+    .input-area {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+
+    .input-area input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+    }
+
+    .input-area button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
     }
 
     .bot {
@@ -50,41 +66,70 @@
       font-weight: bold;
     }
 
-    input[type="text"] {
-      padding: 10px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      position: fixed;
-      bottom: 20px;
-      right: 90px;
-      width: 250px;
+    .close-btn {
+      background: #222;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      text-align: right;
+      cursor: pointer;
     }
 
-    button {
-      padding: 10px;
-      width: 60px;
-      border-radius: 4px;
+    .close-btn:hover {
+      background-color: crimson;
+    }
+
+    #openChatBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
       background-color: #4CAF50;
       color: white;
       border: none;
+      border-radius: 6px;
       cursor: pointer;
-      position: fixed;
-      bottom: 21px;
-      right: 20px;
+      display: none;
     }
 
-    button:hover {
+    #openChatBtn:hover {
       background-color: #45a049;
     }
   </style>
 </head>
 <body>
-  <h1>Chatbot Furioso</h1>
-  <div class="chatbox" id="chatbox"></div>
-  <input type="text" id="userInput" placeholder="Digite sua mensagem..." />
-  <button onclick="sendMessage()">Enviar</button>
+
+  <!-- Chat -->
+  <div class="chat-container" id="chatContainer">
+    <button class="close-btn" onclick="fecharChat()">Fechar</button>
+    <div class="chatbox" id="chatbox"></div>
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Digite sua mensagem..." />
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+
+  <!-- Botão flutuante para abrir chat -->
+  <button id="openChatBtn" onclick="abrirChat()">Abrir Chat</button>
 
   <script>
+    // Aparece 2 segundos depois
+    window.onload = function () {
+      setTimeout(() => {
+        document.getElementById("chatContainer").style.display = "flex";
+      }, 2000);
+    };
+
+    function fecharChat() {
+      document.getElementById("chatContainer").style.display = "none";
+      document.getElementById("openChatBtn").style.display = "block";
+    }
+
+    function abrirChat() {
+      document.getElementById("chatContainer").style.display = "flex";
+      document.getElementById("openChatBtn").style.display = "none";
+    }
+
     function sendMessage() {
       const input = document.getElementById("userInput");
       const mensagem = input.value.toLowerCase();
@@ -94,10 +139,10 @@
 
       adicionarMensagem("Você: " + mensagem, "user");
 
-      let resposta = "Hmm, não entendi. Por que você não envia um oi para iniciarmos uma conversa?";
+      let resposta = "Hmm, não entendi. Diga 'oi' para começarmos!";
 
       if (mensagem === "oi" || mensagem === "ola" || mensagem === "voltar") {
-        resposta = "Olá. Sou o seu assistente Fúria. O que busca? Escolha uma das opções:";
+        resposta = "Olá! Sou o assistente Fúria. O que você deseja?";
         adicionarMensagem("Bot: " + resposta, "bot");
         enviarComDelay([
           "1 - Camisetas oficiais",
@@ -107,38 +152,35 @@
           "5 - Trabalhe conosco"
         ], 1000);
       } else if (mensagem === "1") {
-        // Inserindo link diretamente
-        adicionarMensagem( "Bot: Confira nossas camisetas oficiais: <a href='https://www.furia.gg/produtos' target='_blank'>Aqui</a>",
-          "bot");
+        adicionarMensagem("Bot: <a href='https://www.furia.gg/produtos' target='_blank'>Camisetas oficiais</a>", "bot");
       } else if (mensagem === "2") {
-        adicionarMensagem("Aqui estão nossas redes sociais: em nosso WhatasApp você pode se cadastrar e ter benefícios exclusivos", "bot");
+        adicionarMensagem("Bot: Redes sociais:", "bot");
         enviarComDelay([
-          "<a href='https://wa.me/5511993404466' target='_blank'>WhatsApp Fúria</a>", 
-          "<a href='https://www.twitch.tv/furiatv' target='_blank'>Twitch</a>", 
-          "<a href='https://www.instagram.com/furiagg/?hl=pt' target='_blank'>Instagram</a>",
-          "<a href='https://www.tiktok.com/@furia' target='_blank'>Tiktok</a>"
+          "<a href='https://wa.me/5511993404466' target='_blank'>WhatsApp</a>",
+          "<a href='https://www.twitch.tv/furiatv' target='_blank'>Twitch</a>",
+          "<a href='https://www.instagram.com/furiagg/' target='_blank'>Instagram</a>",
+          "<a href='https://www.tiktok.com/@furia' target='_blank'>TikTok</a>"
         ], 1000);
       } else if (mensagem === "3") {
-        adicionarMensagem("Aqui estão nossos Criadores de Conteúdo Oficiais", "bot");
+        adicionarMensagem("Bot: Criadores de conteúdo:", "bot");
         enviarComDelay([
-          "<a href='https://www.twitch.tv/gafallen' target='_blank'>Gabriel 'Fallen' Toledo</a>", 
+          "<a href='https://www.twitch.tv/gafallen' target='_blank'>Fallen</a>",
           "<a href='https://www.instagram.com/brino/' target='_blank'>Brino</a>",
-          "<a href='https://www.twitch.tv/otsukaxd' target='_blank'>Leonardo 'Otsuka'</a>",
-           "<a href='https://www.twitch.tv/xarola_' target='_blank'>Matheus 'Xarola_'</a>"
+          "<a href='https://www.twitch.tv/otsukaxd' target='_blank'>Otsuka</a>",
+          "<a href='https://www.twitch.tv/xarola_' target='_blank'>Xarola</a>"
         ], 1000);
-      }
-        else if (mensagem === "4") {
-        adicionarMensagem("Aqui está o Título mais recente da Fúria", "bot");
+      } else if (mensagem === "4") {
+        adicionarMensagem("Bot: Último título da Fúria:", "bot");
         enviarComDelay([
-          "<a href='https://www.youtube.com/watch?v=Gj2e7BZI6Ms' target='_blank'>FÚRIA CAMPEÃ NO CS2!! FURIA vs APEKS - Elisa Masters Espoo 2023</a>" 
-          ], 1000);
-        } else if (mensagem === "5") {
-        adicionarMensagem("Neste link você encontra as oportunidades na Fúria.", "bot");
+          "<a href='https://www.youtube.com/watch?v=Gj2e7BZI6Ms' target='_blank'>Assista aqui</a>"
+        ], 1000);
+      } else if (mensagem === "5") {
+        adicionarMensagem("Bot: Oportunidades na Fúria:", "bot");
         enviarComDelay([
-          "<a href='https://99jobs.com/furia/jobs' target='_blank'>Ver Oportunidades</a>",
-          ], 1000);
+          "<a href='https://99jobs.com/furia/jobs' target='_blank'>Trabalhe conosco</a>"
+        ], 1000);
       } else if (mensagem === "encerrar" || mensagem === "sair") {
-        resposta = "Saindo. Volte sempre que precisar. Tchau!";
+        resposta = "Saindo. Volte sempre!";
         enviarComDelay([resposta], 1000);
       }
     }
@@ -164,7 +206,7 @@
       chatbox.scrollTop = chatbox.scrollHeight;
     }
 
-    document.getElementById("userInput").addEventListener("keydown", function(event) {
+    document.getElementById("userInput").addEventListener("keydown", function (event) {
       if (event.key === "Enter") {
         event.preventDefault();
         sendMessage();
@@ -173,4 +215,3 @@
   </script>
 </body>
 </html>
-
