@@ -210,7 +210,9 @@
       } else if (mensagem === "encerrar" || mensagem === "sair") {
         resposta = "Saindo. Volte sempre!";
         enviarComDelay([resposta], 1000);
-      }
+      } else {
+  // Mostra a resposta padrão de erro
+  adicionarMensagem("Bot: " + resposta, "bot");
     }
 
     function enviarComDelay(mensagens, delay) {
