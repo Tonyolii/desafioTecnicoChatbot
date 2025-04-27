@@ -146,6 +146,15 @@
   <button id="openChatBtn" onclick="abrirChat()">Abrir Chat</button>
 
   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(() => {
+    const chat = document.getElementById("chatContainer");
+    chat.style.display = "flex"; // mostra o chat
+    // dá um pequeno delay antes de ativar a animação
+    setTimeout(() => chat.classList.add("show"), 50);
+  }, 2000);
+});
+
     // Aparece 2 segundos depois
     window.onload = function () {
       setTimeout(() => {
