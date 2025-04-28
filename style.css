@@ -78,17 +78,6 @@ body {
   padding: 10px;
   cursor: pointer;
 }
-
-.bot {
-  color: blue;
-  font-weight: bold;
-}
-
-.user {
-  color: green;
-  font-weight: bold;
-}
-
 .close-btn {
   background: #000;
   color: white;
@@ -140,7 +129,7 @@ body {
 }
 
 .bot {
-  background-color: #f1f0f0;
+  background-color: #808080;
   color: black;
   align-self: flex-start;
   margin-right: auto;
