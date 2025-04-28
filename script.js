@@ -86,12 +86,12 @@ function enviarComDelay(mensagens, delay) {
 function adicionarMensagem(texto, classe) {
   const chatbox = document.getElementById("chatbox");
   const div = document.createElement("div");
-div.className = "message " + classe;
-div.innerHTML = texto;
-chatbox.appendChild(div);
-
+  div.className = "message " + classe;
+  div.innerHTML = texto;
+  chatbox.appendChild(div);
   chatbox.scrollTop = chatbox.scrollHeight;
 }
+
 
 document.getElementById("userInput").addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
