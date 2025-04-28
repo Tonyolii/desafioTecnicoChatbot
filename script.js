@@ -35,7 +35,7 @@ function sendMessage() {
       "4 - Títulos e Troféus",
       "5 - Trabalhe conosco"
     ], 1000);
-  } else if (mensagem === "1") {
+  } else if (mensagem === "1" || mensagem === "Camisetas oficiais" || mensagem === "Camisetas" ) {
     adicionarMensagem("<a href='https://www.furia.gg/produtos' target='_blank'>Camisetas oficiais</a>", "bot");
   } else if (mensagem === "2") {
     adicionarMensagem("Aqui estão nossas redes sociais: em nosso WhatsApp você pode se cadastrar e ter benefícios exclusivos", "bot");
