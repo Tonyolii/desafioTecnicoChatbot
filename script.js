@@ -21,7 +21,7 @@ function sendMessage() {
 
   if (!mensagem) return;
 
-  adicionarMensagem("Você: " + mensagem, "user");
+  adicionarMensagem(mensagem, "user");
 
   let resposta = "Hmm, não entendi. Diga 'oi' para começarmos!";
 
@@ -59,7 +59,7 @@ function sendMessage() {
       "<a href='https://www.youtube.com/watch?v=Gj2e7BZI6Ms' target='_blank'>FÚRIA CAMPEÃ NO CS2!! FURIA vs APEKS - Elisa Masters Espoo 2023</a>"
     ], 1000);
   } else if (mensagem === "5") {
-    adicionarMensagem("Bot: Oportunidades na Fúria:", "bot");
+    adicionarMensagem("Oportunidades na Fúria:", "bot");
     enviarComDelay([
       "<a href='https://99jobs.com/furia/jobs' target='_blank'>Trabalhe conosco</a>"
     ], 1000);
@@ -67,7 +67,7 @@ function sendMessage() {
     resposta = "Saindo. Volte sempre!";
     enviarComDelay([resposta], 1000);
   } else {
-    adicionarMensagem("Bot: " + resposta, "bot");
+    adicionarMensagem(resposta, "bot");
   }
 }
 
@@ -75,7 +75,7 @@ function enviarComDelay(mensagens, delay) {
   let i = 0;
   function enviar() {
     if (i < mensagens.length) {
-      adicionarMensagem("Bot: " + mensagens[i], "bot");
+      adicionarMensagem(mensagens[i], "bot");
       i++;
       setTimeout(enviar, delay);
     }
