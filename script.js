@@ -27,7 +27,7 @@ function sendMessage() {
 
   if (mensagem === "oi" || mensagem === "ola" || mensagem === "voltar") {
     resposta = "Olá! Sou o assistente Fúria. O que você deseja?";
-    adicionarMensagem("Bot: " + resposta, "bot");
+    adicionarMensagem(resposta, "bot");
     enviarComDelay([
       "1 - Camisetas oficiais",
       "2 - Bastidores da Fúria",
@@ -36,7 +36,7 @@ function sendMessage() {
       "5 - Trabalhe conosco"
     ], 1000);
   } else if (mensagem === "1") {
-    adicionarMensagem("Bot: <a href='https://www.furia.gg/produtos' target='_blank'>Camisetas oficiais</a>", "bot");
+    adicionarMensagem("<a href='https://www.furia.gg/produtos' target='_blank'>Camisetas oficiais</a>", "bot");
   } else if (mensagem === "2") {
     adicionarMensagem("Aqui estão nossas redes sociais: em nosso WhatsApp você pode se cadastrar e ter benefícios exclusivos", "bot");
     enviarComDelay([
