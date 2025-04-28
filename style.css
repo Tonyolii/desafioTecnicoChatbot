@@ -40,7 +40,7 @@ body {
   width: 320px;
   background-image: url(https://www.papeiseparede.com.br/3257-thickbox_default/papel-de-parede-whatsapp-branco-e-azul.jpg.webp);
   background-size: contain; /* <- Aqui é a mudança */
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
