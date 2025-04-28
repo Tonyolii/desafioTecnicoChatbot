@@ -85,10 +85,11 @@ function enviarComDelay(mensagens, delay) {
 
 function adicionarMensagem(texto, classe) {
   const chatbox = document.getElementById("chatbox");
-  const p = document.createElement("p");
-  p.className = classe;
-  p.innerHTML = texto;
-  chatbox.appendChild(p);
+  const div = document.createElement("div");
+div.className = "message " + classe;
+div.innerHTML = texto;
+chatbox.appendChild(div);
+
   chatbox.scrollTop = chatbox.scrollHeight;
 }
 
