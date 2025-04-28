@@ -118,3 +118,51 @@ body {
 #openChatBtn:hover {
   background-color: #45a049;
 }
+.message {
+  max-width: 70%;
+  margin: 8px;
+  padding: 10px 15px;
+  border-radius: 15px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.4;
+  display: inline-block;
+  clear: both;
+  word-wrap: break-word;
+}
+
+.user {
+  background-color: #dcf8c6;
+  color: black;
+  align-self: flex-end;
+  margin-left: auto;
+  border-bottom-right-radius: 0;
+}
+
+.bot {
+  background-color: #f1f0f0;
+  color: black;
+  align-self: flex-start;
+  margin-right: auto;
+  border-bottom-left-radius: 0;
+}
+
+.user::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 10px;
+  border-width: 10px 0 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent #dcf8c6;
+}
+
+.bot::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 10px;
+  border-width: 10px 10px 10px 0;
+  border-style: solid;
+  border-color: transparent #f1f0f0 transparent transparent;
+}
